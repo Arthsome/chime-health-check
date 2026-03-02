@@ -1,17 +1,9 @@
 name: scan
-on:
-  workflow_dispatch:
+on: push
 jobs:
   run:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: info
-        run: |
-          echo "Runner alive"
-          curl -s https://ipinfo.io/json
       - uses: actions/checkout@v4
-      - name: install
-        run: pip install requests -q
-      - name: scan
-        run: python3 scan.py
+      - run: pip install requests -q && python3 scan.py
