@@ -1,0 +1,9 @@
+name: scan
+on: workflow_dispatch
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install requests -q
+      - run: python3 scan.py
